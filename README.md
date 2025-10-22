@@ -7,10 +7,24 @@
 
 ---
 
+## 🚀 Overview
+
 **CoreVault** é o **núcleo modular de sistemas empresariais** implementado em **C# (.NET 9)** com **Clean Architecture + DDD**, projetado para fornecer:
 
-- **Abstrações e contratos reutilizáveis** para microserviços e módulos corporativos.  
-- **Comunicação baseada em eventos** para integração entre sistemas e mensageria.  
-- **Escalabilidade e manutenção facilitada**, separando claramente domínios e regras de negócio.  
+- **Abstrações e contratos reutilizáveis** para microserviços e módulos corporativos  
+- **Comunicação baseada em eventos** para integração entre sistemas e mensageria  
+- **Escalabilidade e manutenção facilitada**, separando claramente domínios e regras de negócio  
 
 Este projeto forma a **base técnica para um ecossistema especialista**, servindo como referência para padrões de arquitetura, design patterns e práticas de engenharia de software modernas.
+
+---
+
+## 🏗 Architecture
+
+```mermaid
+graph TD
+    UI[User Interface / Frontend] -->|Calls| API[Application Layer]
+    API -->|Invokes| Domain[Domain Layer]
+    Domain -->|Uses| Infrastructure[Infrastructure Layer]
+    Domain -->|Publishes| EventBus[Event Bus / Messaging]
+    Infrastructure -->|Persists| DB[(Database)]
